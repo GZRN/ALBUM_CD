@@ -14,56 +14,45 @@
 .meta { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #444; margin-top: 8px; }
 .divider { width: 1px; height: 28px; background: #777; margin: 14px auto; }
 .tracklist { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #111; line-height: 2.2; }
-
 .warning-band { background: #111; color: #c8c7c0; padding: 18px 28px; margin-top: 36px; text-align: center; }
 .warning-band p { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; line-height: 2.1; }
 .warning-band strong { color: #fff; }
-
 .request-section { background: #111; color: #c8c7c0; padding: 40px 28px 50px; }
 .req-title { font-size: 22px; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 4px; }
 .req-sub { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #666; margin-bottom: 28px; }
 .field-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #777; margin-bottom: 5px; margin-top: 16px; }
-.request-section input, .request-section select {
-  display: block; width: 100%;
-  background: #1a1a1a; border: 1px solid #333; color: #c8c7c0;
-  padding: 11px 14px; font-size: 13px; letter-spacing: 0.04em;
-  font-family: Arial, sans-serif; border-radius: 0; outline: none;
-}
+.request-section input, .request-section select { display: block; width: 100%; background: #1a1a1a; border: 1px solid #333; color: #c8c7c0; padding: 11px 14px; font-size: 13px; letter-spacing: 0.04em; font-family: Arial, sans-serif; border-radius: 0; outline: none; }
 .request-section input:focus, .request-section select:focus { border-color: #c8c7c0; }
 .request-section input::placeholder { color: #555; }
 .request-section select option { background: #1a1a1a; }
-
 .warn-inline { background: #1a1a1a; border-left: 3px solid #c8c7c0; padding: 14px 16px; margin-top: 20px; margin-bottom: 4px; }
 .warn-inline p { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888; line-height: 2; }
 .warn-inline strong { color: #c8c7c0; }
-
 .money-warn { background: #1f0000; border: 1px solid #6e1414; padding: 14px 16px; margin-top: 18px; }
 .money-warn p { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #d08080; line-height: 2; }
 .money-warn strong { color: #ff6060; }
-
 .submit-btn { width: 100%; background: #c8c7c0; color: #111; border: none; padding: 14px; font-size: 12px; font-weight: 900; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; margin-top: 20px; font-family: 'Arial Black', Arial, sans-serif; }
 .submit-btn:hover { background: #e0dfda; }
-.submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 .form-err { font-size: 10px; color: #e04444; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 8px; display: none; }
-
+.sending-msg { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #666; margin-top: 12px; display: none; text-align: center; }
 .success-box { display: none; background: #1a1a1a; border: 1px solid #333; padding: 28px; margin-top: 16px; text-align: center; }
-.success-box .good-luck { font-size: 32px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #c8c7c0; margin-bottom: 14px; }
-.success-box p { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666; line-height: 2.2; }
+.success-box .good-luck { font-size: 40px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #c8c7c0; margin-bottom: 14px; }
+.success-box p { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666; line-height: 2.4; }
 .success-box strong { color: #c8c7c0; }
-
-.modal-overlay { display: none; background: rgba(0,0,0,0.88); padding: 40px 20px; }
+.net-err { background: #1f0000; border: 1px solid #6e1414; padding: 12px 16px; margin-top: 12px; display: none; }
+.net-err p { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #d08080; line-height: 1.9; }
+.modal-overlay { display: none; padding: 40px 20px; background: rgba(0,0,0,0.88); }
 .modal-overlay.open { display: flex; align-items: center; justify-content: center; min-height: 340px; }
 .modal-box { background: #0f0f0f; border: 1px solid #444; padding: 28px; max-width: 400px; width: 100%; }
 .modal-title { font-size: 14px; font-weight: 900; letter-spacing: 0.2em; text-transform: uppercase; color: #c8c7c0; margin-bottom: 16px; }
 .modal-body p { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888; line-height: 2.2; margin-bottom: 8px; }
 .modal-body strong { color: #ff6060; }
-.modal-body .white { color: #c8c7c0; }
+.modal-body .wh { color: #c8c7c0; }
 .modal-btns { display: flex; gap: 10px; margin-top: 22px; }
 .modal-confirm { flex: 1; background: #c8c7c0; color: #111; border: none; padding: 12px; font-size: 11px; font-weight: 900; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; font-family: 'Arial Black', Arial, sans-serif; }
-.modal-cancel { flex: 1; background: transparent; color: #666; border: 1px solid #333; padding: 12px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; font-family: Arial, sans-serif; }
+.modal-cancel { flex: 1; background: transparent; color: #666; border: 1px solid #333; padding: 12px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; }
 .modal-confirm:hover { background: #e0dfda; }
-.modal-cancel:hover { color: #c8c7c0; border-color: #666; }
-
+.modal-cancel:hover { color: #c8c7c0; }
 .vault-btn { position: absolute; top: 8px; left: 8px; width: 14px; height: 14px; background: transparent; border: none; cursor: pointer; opacity: 0.12; }
 .vault-btn:hover { opacity: 0.25; }
 .vault-panel { display: none; background: #0a0a0a; border-bottom: 1px solid #222; padding: 20px 28px; }
@@ -74,14 +63,11 @@
 .entry-card strong { color: #c8c7c0; }
 .no-entries { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #333; }
 .clear-btn { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: #444; background: none; border: 1px solid #222; padding: 6px 12px; cursor: pointer; margin-top: 12px; }
-.clear-btn:hover { color: #888; }
 .count-badge { font-size: 10px; letter-spacing: 0.15em; color: #444; margin-bottom: 10px; }
 </style>
 
 <div id="site">
-
   <button class="vault-btn" id="vault-toggle" title=""></button>
-
   <div id="vault-panel" class="vault-panel">
     <div class="vault-title">Submitted Requests</div>
     <div class="count-badge" id="vault-count">0 requests</div>
@@ -97,7 +83,7 @@
   <div class="hero">
     <div class="title-row">
       <span class="star">&#9733;</span>
-      <div class="album-title">[NO REPLIES SENT]</div>
+      <div class="album-title">[Album Name]</div>
       <span class="star">&#9733;</span>
     </div>
     <div class="cover-box"><span>Album Cover</span></div>
@@ -109,9 +95,9 @@
     <div class="meta">Signed CD &mdash; Physical Edition</div>
     <div class="divider"></div>
     <div class="tracklist">
-      01 &mdash; [SETTINGS]<br>02 &mdash; [OUT NO TRACE]<br>03 &mdash; [PRESSURE TALK]<br>
-      04 &mdash; [NO FACE, NO CASE]<br>05 &mdash; [FUEL TO THE FLAME]<br>06 &mdash; [LATE NIGHT DRIVING]<br>
-      07 &mdash; [JUST IN CASE]<br>08 &mdash; [ON MY OWN TERMS]<br>09 &mdash; [COLD SIDE OF TOWN]<br>10 &mdash; [LAST ONE LEFT]
+      01 &mdash; [Track]<br>02 &mdash; [Track]<br>03 &mdash; [Track]<br>
+      04 &mdash; [Track]<br>05 &mdash; [Track]<br>06 &mdash; [Track]<br>
+      07 &mdash; [Track]<br>08 &mdash; [Track]<br>09 &mdash; [Track]<br>10 &mdash; [Track]
     </div>
   </div>
 
@@ -135,10 +121,10 @@
     <div class="field-label">What are you willing to pay? (affects your chances)</div>
     <select id="r-offer">
       <option value="">Select an amount...</option>
-      <option value="£1–£2">£1 &ndash; £2</option>
-      <option value="£3–£4">£3 &ndash; £4</option>
+      <option value="£1-£2">£1 &ndash; £2</option>
+      <option value="£3-£4">£3 &ndash; £4</option>
       <option value="£5">£5</option>
-      <option value="£6–£9">£6 &ndash; £9</option>
+      <option value="£6-£9">£6 &ndash; £9</option>
       <option value="£10+">£10 or more</option>
       <option value="Whatever it takes">Whatever it takes</option>
     </select>
@@ -146,7 +132,7 @@
     <div class="money-warn">
       <p>
         <strong>Important &mdash; Read This:</strong><br>
-        If you are selected, you will be given a <strong>confirmed date in school</strong> to bring your money.<br>
+        If selected, you will be given a <strong>confirmed date in school</strong> to bring your money.<br>
         <strong>If you do not bring money on that day, your copy will not be given to you.</strong><br>
         No exceptions. No second chances. Your spot goes to someone else.
       </p>
@@ -155,34 +141,16 @@
     <div class="warn-inline">
       <p>
         <strong>Before you submit:</strong><br>
-        This is a <strong>random draw</strong> &mdash; higher offers improve your chances but nothing is guaranteed.<br>
-        Only <strong>10 CDs</strong> will be made or signed.<br>
-        No money is collected now. Payment is only required <strong>if selected.</strong>
+        Higher offers improve your chances but <strong>nothing is guaranteed.</strong><br>
+        Only <strong>10 CDs</strong> will ever be made or signed.<br>
+        No money is collected now &mdash; only required <strong>if selected.</strong>
       </p>
     </div>
 
-    <div class="form-err" id="form-err">Please fill in your name and select an amount.</div>
+    <div class="form-err" id="form-err">Please enter your name and select an amount.</div>
     <button class="submit-btn" id="submit-btn" onclick="openModal()">Submit Request</button>
-  </div>
-
-  <div class="modal-overlay" id="modal-overlay">
-    <div class="modal-box">
-      <div class="modal-title">Before you confirm</div>
-      <div class="modal-body">
-        <p><strong>You are about to enter the draw for a signed CD.</strong></p>
-        <p class="white">If selected, you will be contacted with a <span class="white">confirmed date in school.</span></p>
-        <p><strong>You must bring your money on that exact day.</strong></p>
-        <p>No money = no CD. No exceptions. No refunds on your spot.</p>
-        <p class="white">Submitting is a commitment. Only request if you are serious.</p>
-      </div>
-      <div class="modal-btns">
-        <button class="modal-cancel" onclick="closeModal()">Go Back</button>
-        <button class="modal-confirm" onclick="confirmSubmit()">I Understand &mdash; Submit</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="request-section" style="padding-top:0;">
+    <div class="sending-msg" id="sending-msg">Sending...</div>
+    <div class="net-err" id="net-err"><p>Something went wrong sending your request. Please try again.</p></div>
     <div class="success-box" id="success-box">
       <div class="good-luck">Good Luck!</div>
       <p>
@@ -195,6 +163,22 @@
     </div>
   </div>
 
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-title">Before you confirm</div>
+      <div class="modal-body">
+        <p><strong>You are about to enter the draw for a signed CD.</strong></p>
+        <p class="wh">If selected, you will be given a <strong style="color:#ff6060;">confirmed date in school.</strong></p>
+        <p><strong>You must bring your money on that exact day.</strong></p>
+        <p>No money = no CD. No exceptions. Your spot goes to someone else.</p>
+        <p class="wh">Only request if you are serious and can bring the money when asked.</p>
+      </div>
+      <div class="modal-btns">
+        <button class="modal-cancel" onclick="closeModal()">Go Back</button>
+        <button class="modal-confirm" onclick="confirmSubmit()">I Understand &mdash; Submit</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -221,54 +205,54 @@ function confirmSubmit() {
   var offer = document.getElementById('r-offer').value;
   var ts = new Date().toLocaleString();
 
-  var body = new FormData();
-  body.append('name', name);
-  body.append('willing_to_pay', offer);
-  body.append('submitted_at', ts);
-
-  fetch('https://formspree.io/f/mbdqlal', { method: 'POST', body: body, headers: { 'Accept': 'application/json' } })
-    .catch(function() {});
-
-  entries.push({ name: name, offer: offer, time: ts });
-  renderVault();
-
   document.getElementById('submit-btn').style.display = 'none';
-  document.getElementById('success-box').style.display = 'block';
-  document.getElementById('success-box').scrollIntoView({ behavior: 'smooth' });
-  document.getElementById('r-name').value = '';
-  document.getElementById('r-offer').value = '';
+  document.getElementById('sending-msg').style.display = 'block';
+  document.getElementById('net-err').style.display = 'none';
+
+  fetch('https://formspree.io/f/mbdqlal', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({ name: name, willing_to_pay: offer, submitted_at: ts })
+  })
+  .then(function(res) {
+    document.getElementById('sending-msg').style.display = 'none';
+    if (res.ok) {
+      entries.push({ name: name, offer: offer, time: ts });
+      renderVault();
+      document.getElementById('success-box').style.display = 'block';
+      document.getElementById('success-box').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('r-name').value = '';
+      document.getElementById('r-offer').value = '';
+    } else {
+      document.getElementById('submit-btn').style.display = 'block';
+      document.getElementById('net-err').style.display = 'block';
+    }
+  })
+  .catch(function() {
+    document.getElementById('sending-msg').style.display = 'none';
+    document.getElementById('submit-btn').style.display = 'block';
+    document.getElementById('net-err').style.display = 'block';
+  });
 }
 
 function renderVault() {
   var el = document.getElementById('vault-entries');
   var countEl = document.getElementById('vault-count');
   countEl.textContent = entries.length + ' request' + (entries.length !== 1 ? 's' : '');
-  if (entries.length === 0) {
-    el.innerHTML = '<span class="no-entries">No requests yet.</span>';
-    return;
-  }
+  if (entries.length === 0) { el.innerHTML = '<span class="no-entries">No requests yet.</span>'; return; }
   el.innerHTML = entries.map(function(e, i) {
-    return '<div class="entry-card"><p>' +
-      '<strong>#' + (i+1) + ' &mdash; ' + e.name + '</strong><br>' +
-      'Willing to pay: ' + e.offer + '<br>' +
-      '<span style="color:#444;">' + e.time + '</span>' +
-      '</p></div>';
+    return '<div class="entry-card"><p><strong>#' + (i+1) + ' \u2014 ' + e.name + '</strong><br>Willing to pay: ' + e.offer + '<br><span style="color:#444;">' + e.time + '</span></p></div>';
   }).join('');
 }
 
-function clearVault() {
-  entries = [];
-  renderVault();
-}
+function clearVault() { entries = []; renderVault(); }
 
-var clicks = 0, timer;
+var clicks = 0, vtimer;
 document.getElementById('vault-toggle').addEventListener('click', function() {
   clicks++;
-  clearTimeout(timer);
-  timer = setTimeout(function() { clicks = 0; }, 600);
-  if (clicks >= 3) {
-    clicks = 0;
-    document.getElementById('vault-panel').classList.toggle('open');
-  }
+  clearTimeout(vtimer);
+  vtimer = setTimeout(function() { clicks = 0; }, 600);
+  if (clicks >= 3) { clicks = 0; document.getElementById('vault-panel').classList.toggle('open'); }
 });
 </script>
+
