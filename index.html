@@ -1,4 +1,3 @@
-
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 #site { background: #c8c7c0; min-height: 100vh; font-family: 'Arial Black', Arial, sans-serif; color: #111; position: relative; }
@@ -41,35 +40,13 @@
 .success-box { display: none; background: #1a1a1a; border: 1px solid #333; padding: 24px; margin-top: 16px; text-align: center; }
 .success-box p { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #888; line-height: 2; }
 .success-box strong { color: #c8c7c0; }
-
-.vault-btn { position: absolute; top: 8px; left: 8px; width: 12px; height: 12px; background: transparent; border: none; cursor: pointer; opacity: 0.15; }
-.vault-btn:hover { opacity: 0.3; }
-.vault-panel { display: none; background: #0a0a0a; border: 1px solid #333; padding: 20px; margin: 0 0 0; }
-.vault-panel.open { display: block; }
-.vault-title { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #555; margin-bottom: 16px; }
-.entry-card { border: 1px solid #222; padding: 12px; margin-bottom: 10px; }
-.entry-card p { font-size: 11px; letter-spacing: 0.1em; color: #888; line-height: 1.8; }
-.entry-card strong { color: #c8c7c0; }
-.no-entries { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #444; }
-.clear-btn { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: #444; background: none; border: 1px solid #333; padding: 6px 12px; cursor: pointer; margin-top: 12px; }
-.clear-btn:hover { color: #888; }
-.count-badge { font-size: 10px; letter-spacing: 0.15em; color: #555; margin-bottom: 12px; }
 </style>
 
 <div id="site">
 
-  <button class="vault-btn" id="vault-toggle" title=""></button>
-
   <div class="top-bar">
     <span>Official Release</span>
-    <span>Physical &mdash; Signed CD</span>
-  </div>
-
-  <div id="vault-panel" class="vault-panel">
-    <div class="vault-title">Submitted Requests</div>
-    <div class="count-badge" id="vault-count">0 requests</div>
-    <div id="vault-entries"><span class="no-entries">No requests yet.</span></div>
-    <button class="clear-btn" onclick="clearVault()">Clear all</button>
+    <span>Physical — Signed CD</span>
   </div>
 
   <div class="hero">
@@ -81,109 +58,72 @@
     <div class="cover-box"><span>Album Cover</span></div>
     <div class="sub-row">
       <span class="star" style="font-size:20px;">&#9733;</span>
-      <div class="artist">GZRN &times; BLINDSIDEZ</div>
+      <div class="artist">GZRN × BLINDSIDEZ</div>
       <span class="star" style="font-size:20px;">&#9733;</span>
     </div>
-    <div class="meta">Signed CD &mdash; Physical Edition</div>
-    <div class="divider"></div>
-    <div class="tracklist">
-      01 &mdash; [Track]<br>02 &mdash; [Track]<br>03 &mdash; [Track]<br>
-      04 &mdash; [Track]<br>05 &mdash; [Track]<br>06 &mdash; [Track]<br>
-      07 &mdash; [Track]<br>08 &mdash; [Track]<br>09 &mdash; [Track]<br>10 &mdash; [Track]
-    </div>
+    <div class="meta">Signed CD — Physical Edition</div>
   </div>
 
   <div class="warning-band">
     <p>
       <strong>Only 10 copies exist.</strong><br>
-      This is a hand-signed CD &mdash; personally signed by GZRN &amp; BLINDSIDEZ.<br>
-      Submitting a request does <strong>not</strong> guarantee you a copy.<br>
-      Recipients will be selected through a <strong>random process.</strong><br>
-      If selected, you will be contacted directly.
+      Submitting a request does not guarantee you a copy.
     </p>
   </div>
 
   <div class="request-section">
     <div class="req-title">Request a Copy</div>
-    <div class="req-sub">Limited to 10 &mdash; Random Selection</div>
+    <div class="req-sub">Limited to 10 — Random Selection</div>
 
-    <div class="field-label">Your Name</div>
-    <input type="text" id="r-name" placeholder="Full name" />
+    <form id="order-form" action="https://formspree.io/f/mbdqlale" method="POST">
 
-    <div class="field-label">What would you offer or why should you be picked?</div>
-    <textarea id="r-offer" placeholder="Tell us something... what you'd give, why it matters to you, anything."></textarea>
+      <div class="field-label">Your Name</div>
+      <input type="text" name="name" id="r-name" placeholder="Full name" required />
 
-    <div class="warn-inline">
-      <p>
-        <strong>Read before submitting:</strong><br>
-        Only <strong>10 signed CDs</strong> will ever be made.<br>
-        Requests are entered into a <strong>random draw</strong> &mdash; no guarantees.<br>
-        This is not a purchase. No money is required or collected.<br>
-        Selected individuals will be reached out to personally.
-      </p>
-    </div>
+      <div class="field-label">What would you offer or why should you be picked?</div>
+      <textarea name="offer" id="r-offer" placeholder="Tell us something..."></textarea>
 
-    <div class="form-err" id="form-err">Please fill in your name before submitting.</div>
-    <button class="submit-btn" id="submit-btn" onclick="submitRequest()">Submit Request</button>
+      <div class="form-err" id="form-err">Please fill in your name before submitting.</div>
+
+      <button class="submit-btn" id="submit-btn" type="submit">Submit Request</button>
+
+    </form>
 
     <div class="success-box" id="success-box">
-      <p><strong>Request received.</strong><br>You've been entered into the draw.<br>If selected, we'll reach out to you directly.<br><br>Good luck.</p>
+      <p><strong>Request received.</strong><br>You've been entered into the draw.</p>
     </div>
   </div>
 
 </div>
 
 <script>
-var entries = [];
+const form = document.getElementById("order-form");
 
-function submitRequest() {
-  var name = document.getElementById('r-name').value.trim();
-  var offer = document.getElementById('r-offer').value.trim();
+form.addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById('r-name').value.trim();
   if (!name) {
     document.getElementById('form-err').style.display = 'block';
     return;
   }
+
   document.getElementById('form-err').style.display = 'none';
-  var ts = new Date().toLocaleString();
-  entries.push({ name: name, offer: offer || '—', time: ts });
-  renderVault();
-  document.getElementById('submit-btn').style.display = 'none';
-  document.getElementById('success-box').style.display = 'block';
-  document.getElementById('r-name').value = '';
-  document.getElementById('r-offer').value = '';
-}
 
-function renderVault() {
-  var el = document.getElementById('vault-entries');
-  var countEl = document.getElementById('vault-count');
-  countEl.textContent = entries.length + ' request' + (entries.length !== 1 ? 's' : '');
-  if (entries.length === 0) {
-    el.innerHTML = '<span class="no-entries">No requests yet.</span>';
-    return;
-  }
-  el.innerHTML = entries.map(function(e, i) {
-    return '<div class="entry-card"><p>' +
-      '<strong>#' + (i+1) + ' &mdash; ' + e.name + '</strong><br>' +
-      'Offer: ' + e.offer + '<br>' +
-      '<span style="color:#444;">' + e.time + '</span>' +
-      '</p></div>';
-  }).join('');
-}
+  const data = new FormData(form);
 
-function clearVault() {
-  entries = [];
-  renderVault();
-}
+  const res = await fetch(form.action, {
+    method: "POST",
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  });
 
-var clicks = 0, timer;
-document.getElementById('vault-toggle').addEventListener('click', function() {
-  clicks++;
-  clearTimeout(timer);
-  timer = setTimeout(function() { clicks = 0; }, 600);
-  if (clicks >= 3) {
-    clicks = 0;
-    var p = document.getElementById('vault-panel');
-    p.classList.toggle('open');
+  if (res.ok) {
+    document.getElementById('submit-btn').style.display = 'none';
+    document.getElementById('success-box').style.display = 'block';
+    form.reset();
+  } else {
+    document.getElementById('form-err').style.display = 'block';
   }
 });
 </script>
