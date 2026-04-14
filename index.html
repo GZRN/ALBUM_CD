@@ -12,7 +12,6 @@
 .artist { font-size: 28px; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; }
 .meta { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #444; margin-top: 8px; }
 .divider { width: 1px; height: 28px; background: #777; margin: 14px auto; }
-.tracklist { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #111; line-height: 2.2; }
 
 .warning-band { background: #111; color: #c8c7c0; padding: 18px 28px; margin-top: 36px; text-align: center; }
 .warning-band p { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; line-height: 2; }
@@ -28,18 +27,15 @@
   padding: 11px 14px; font-size: 13px; letter-spacing: 0.04em;
   font-family: Arial, sans-serif; border-radius: 0; outline: none;
 }
-.request-section input:focus, .request-section textarea:focus { border-color: #c8c7c0; }
-.request-section input::placeholder, .request-section textarea::placeholder { color: #555; }
 .request-section textarea { resize: vertical; min-height: 90px; }
-.warn-inline { background: #1a1a1a; border-left: 3px solid #c8c7c0; padding: 12px 16px; margin-top: 20px; margin-bottom: 4px; }
+
+.warn-inline { background: #1a1a1a; border-left: 3px solid #c8c7c0; padding: 12px 16px; margin-top: 20px; }
 .warn-inline p { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888; line-height: 1.9; }
-.warn-inline strong { color: #c8c7c0; }
-.submit-btn { width: 100%; background: #c8c7c0; color: #111; border: none; padding: 14px; font-size: 12px; font-weight: 900; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; margin-top: 20px; font-family: 'Arial Black', Arial, sans-serif; }
-.submit-btn:hover { background: #e0dfda; }
+
+.submit-btn { width: 100%; background: #c8c7c0; color: #111; border: none; padding: 14px; font-size: 12px; font-weight: 900; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; margin-top: 20px; }
 .form-err { font-size: 10px; color: #e04444; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 8px; display: none; }
+
 .success-box { display: none; background: #1a1a1a; border: 1px solid #333; padding: 24px; margin-top: 16px; text-align: center; }
-.success-box p { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #888; line-height: 2; }
-.success-box strong { color: #c8c7c0; }
 </style>
 
 <div id="site">
@@ -66,7 +62,7 @@
 
   <div class="warning-band">
     <p>
-      <strong>Only 10 copies exist. May Be Restocked In The Future.</strong><br>
+      <strong>Only 10 copies exist.</strong><br>
       Submitting a request does not guarantee you a copy.
     </p>
   </div>
@@ -80,17 +76,33 @@
       <div class="field-label">Your Name</div>
       <input type="text" name="name" id="r-name" placeholder="Full name" required />
 
-      <div class="field-label">What would you offer or why should you be picked?</div>
-      <textarea name="offer" id="r-offer" placeholder="Tell us something..."></textarea>
+      <div class="field-label">Why should you be picked?</div>
+      <textarea name="offer" id="r-offer" placeholder="Say something..."></textarea>
 
-      <div class="form-err" id="form-err">Please fill in your name before submitting.</div>
+      <div class="warn-inline">
+        <p>
+          <strong>Read before submitting:</strong><br>
+          If selected, you will be given a confirmed date in school.<br>
+          You must bring payment on that day or your copy will be given away.<br>
+          This is not a guaranteed purchase.
+        </p>
+      </div>
+
+      <div style="margin-top:16px;">
+        <label style="font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:#777;">
+          <input type="checkbox" id="confirm-check" style="margin-right:8px;">
+          I understand I must bring payment on the confirmed date
+        </label>
+      </div>
+
+      <div class="form-err" id="form-err"></div>
 
       <button class="submit-btn" id="submit-btn" type="submit">Submit Request</button>
 
     </form>
 
     <div class="success-box" id="success-box">
-      <p><strong>Request received.</strong><br>You've been entered into the draw.</p>
+      <p><strong>Good Luck!</strong><br>Your request has been submitted.</p>
     </div>
   </div>
 
@@ -103,7 +115,16 @@ form.addEventListener("submit", async function(e) {
   e.preventDefault();
 
   const name = document.getElementById('r-name').value.trim();
+  const check = document.getElementById('confirm-check').checked;
+
   if (!name) {
+    document.getElementById('form-err').innerText = "Enter your name";
+    document.getElementById('form-err').style.display = 'block';
+    return;
+  }
+
+  if (!check) {
+    document.getElementById('form-err').innerText = "You must agree before submitting";
     document.getElementById('form-err').style.display = 'block';
     return;
   }
@@ -123,6 +144,7 @@ form.addEventListener("submit", async function(e) {
     document.getElementById('success-box').style.display = 'block';
     form.reset();
   } else {
+    document.getElementById('form-err').innerText = "Something went wrong";
     document.getElementById('form-err').style.display = 'block';
   }
 });
